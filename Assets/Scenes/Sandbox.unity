@@ -1185,8 +1185,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4392252472519623994, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392252472519623996, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392252472519623998, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+--- !u!1 &794251459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1345788298780244, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 794251458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &794251460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794251459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382c649a2c7df430c91ba5eb4c5cb80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FPCamera: {fileID: 1311111062}
+  range: 100
+  damage: 35
+  muzzleFlash: {fileID: 1047604078}
+  hitEnemyEffect: {fileID: 4924229998379107112, guid: dff35117199424f5ca221b70a296478b,
+    type: 3}
+  hitTerrainEffect: {fileID: 551407444573912163, guid: 112ea773d92cc4f40831fcefc690ad1b,
+    type: 3}
+  hitSolidEffect: {fileID: 8655043257550809673, guid: 7a7a3e79373f5464ba1ccabbb6e533c3,
+    type: 3}
 --- !u!4 &860909561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc,
@@ -1504,6 +1547,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041161764}
   m_CullTransparentMesh: 0
+--- !u!198 &1047604078 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 552239904633359762, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 794251458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1057629799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2516296020007007688, guid: e6555d4a5cc3d487cb7d8fe2228546d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2516296019929646979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1057629800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057629799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1cdae4de6f4450ab4746019b317de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!1001 &1084886387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1979,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3681543e5b0f59742b73073cb379cdc6, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3681543e5b0f59742b73073cb379cdc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2025,6 +2097,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3681543e5b0f59742b73073cb379cdc6, type: 3}
+--- !u!20 &1311111062 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 794251458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1333338479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc,
@@ -2638,6 +2716,11 @@ PrefabInstance:
     - target: {fileID: 2516296020007007688, guid: e6555d4a5cc3d487cb7d8fe2228546d7,
         type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516296020007007688, guid: e6555d4a5cc3d487cb7d8fe2228546d7,
+        type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2516296020007007695, guid: e6555d4a5cc3d487cb7d8fe2228546d7,
