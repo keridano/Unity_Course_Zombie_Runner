@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
@@ -9,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity; //we want the enemy to chase target only when needed
 
+    bool isProvoked;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -17,7 +20,34 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if(distanceToTarget <= chaseRange)
-            navMeshAgent.SetDestination(target.position);
+
+        if (isProvoked)
+            EngageTarget();
+        else if(distanceToTarget <= chaseRange)
+            isProvoked = true;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    private void EngageTarget()
+    {
+        if (distanceToTarget > navMeshAgent.stoppingDistance)
+            ChaseTarget();
+        else//if (distanceToTarget <= navMeshAgent.stoppingDistance)
+            AttackTarget();
+    }
+
+    private void ChaseTarget()
+    {
+        navMeshAgent.SetDestination(target.position);
+    }
+
+    private void AttackTarget()
+    {
+        Debug.Log($"{name} Attack {target.name}");
     }
 }
