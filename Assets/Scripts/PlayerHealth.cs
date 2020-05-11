@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
 
-    //bool isDying;
+    bool isDying;
 
     public void TakeDamage(float damage)
     {
@@ -20,10 +20,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void KillPlayer()
     {
-        print("You are dead");
-        //if (isDying) return; //prevents multiple particle instances
+        if (isDying) return; //prevents multiple particle instances
 
-        //isDying = true;
-        //Destroy(gameObject);
+        isDying = true;
+        GetComponent<DeathHandler>().HandleDeath();
     }
 }
