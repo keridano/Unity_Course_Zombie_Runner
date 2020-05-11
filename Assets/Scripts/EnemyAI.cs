@@ -1,11 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 10f;
+    [SerializeField] float turnSpeed = 5f;
 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity; //we want the enemy to chase target only when needed
@@ -35,19 +35,30 @@ public class EnemyAI : MonoBehaviour
 
     private void EngageTarget()
     {
+        FaceTarget();
+
         if (distanceToTarget > navMeshAgent.stoppingDistance)
             ChaseTarget();
-        else//if (distanceToTarget <= navMeshAgent.stoppingDistance)
+        else
             AttackTarget();
     }
 
     private void ChaseTarget()
     {
+        GetComponent<Animator>().SetBool("attack", false);
+        GetComponent<Animator>().SetTrigger("move");
         navMeshAgent.SetDestination(target.position);
+    }
+
+    private void FaceTarget()
+    {
+        var direction = (target.position - transform.position).normalized;
+        var lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     private void AttackTarget()
     {
-        Debug.Log($"{name} Attack {target.name}");
+        GetComponent<Animator>().SetBool("attack", true);
     }
 }

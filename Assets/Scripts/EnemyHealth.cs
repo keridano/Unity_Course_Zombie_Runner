@@ -25,7 +25,6 @@ public class EnemyHealth : MonoBehaviour
         if (isDying) return; //prevents multiple particle instances
 
         isDying = true;
-        //hitParticle.Stop();
         //var instantiatedFx = Instantiate(deathFx, transform.position, Quaternion.identity);
         //instantiatedFx.transform.parent = transform.parent;
         Destroy(gameObject);
