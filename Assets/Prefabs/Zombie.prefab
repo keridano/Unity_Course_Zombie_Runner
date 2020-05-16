@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRange: 8
+  chaseRange: 10
   turnSpeed: 5
 --- !u!195 &5833937079804838726
 NavMeshAgent:
