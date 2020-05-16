@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        GetComponent<EnemyAI>().OnDamageTaken();
         ProcessHit(damage);
         if (hitPoints <= 0)
             KillEnemy();
@@ -15,9 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void ProcessHit(float damage)
     {
-        //scoreBoard.ScoreHit(scorePerHit);
         hitPoints -= damage;
-        //hitParticle.Play();
     }
 
     private void KillEnemy()
