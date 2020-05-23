@@ -4,6 +4,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class WeaponZoom : MonoBehaviour
 {
+    [SerializeField] RigidbodyFirstPersonController fpsController;
+
     private const float zoomedInMouseSensitivity = 0.5f;
     private const float zoomedInFieldOfView = 20f;
 
@@ -13,15 +15,11 @@ public class WeaponZoom : MonoBehaviour
 
     bool isZoomedIn;
 
-    RigidbodyFirstPersonController fpsController;
-
     void Start()
     {
         baseFieldOfView = Camera.main.fieldOfView;
-        fpsController = GetComponent<RigidbodyFirstPersonController>();
         baseMouseXSensitivity = fpsController.mouseLook.XSensitivity;
         baseMouseYSensitivity = fpsController.mouseLook.YSensitivity;
-
     }
 
     void Update()

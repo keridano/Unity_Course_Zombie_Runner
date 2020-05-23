@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Weapon : MonoBehaviour
@@ -11,20 +12,37 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitTerrainEffect;
     [SerializeField] GameObject hitSolidEffect;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] float timeBetweenShots = 0.5f;
+
+    private bool canShoot = true;
 
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1") && canShoot)
         {
-            if(ammoSlot.GetCurrentAmmo() > 0)
-            {
-                muzzleFlash.Play();
-                Shoot();
-            }
+            StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    private IEnumerator Shoot()
+    {
+        canShoot = false;
+        if (ammoSlot.GetCurrentAmmo() > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRayCast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
+    }
+
+    private void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
+
+    private void ProcessRayCast()
     {
         var isHit = Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out var hitInfo, range);
 
@@ -34,8 +52,6 @@ public class Weapon : MonoBehaviour
             var target = hitInfo.transform.GetComponent<EnemyHealth>();
             target?.TakeDamage(damage);
         }
-
-        ammoSlot.ReduceCurrentAmmo();
     }
 
     private void CreateHitImpact(RaycastHit hitInfo)

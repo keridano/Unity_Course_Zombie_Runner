@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4485997996375822
 Transform:
   m_ObjectHideFlags: 0
@@ -522,31 +522,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MF_Pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782969701001850968, guid: ef7cb70018c814bdea9afa35efc5839d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782969701001850972, guid: ef7cb70018c814bdea9afa35efc5839d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782969701001850974, guid: ef7cb70018c814bdea9afa35efc5839d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782969701020756286, guid: ef7cb70018c814bdea9afa35efc5839d,
-        type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782969701020756286, guid: ef7cb70018c814bdea9afa35efc5839d,
-        type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7cb70018c814bdea9afa35efc5839d, type: 3}

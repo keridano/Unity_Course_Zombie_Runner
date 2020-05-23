@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4062239528963416
 Transform:
   m_ObjectHideFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   hitSolidEffect: {fileID: 8655043257550809673, guid: 7a7a3e79373f5464ba1ccabbb6e533c3,
     type: 3}
   ammoSlot: {fileID: 0}
+  timeBetweenShots: 2
 --- !u!1001 &7659831036373831898
 PrefabInstance:
   m_ObjectHideFlags: 0

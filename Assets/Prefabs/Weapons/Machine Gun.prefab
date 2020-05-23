@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 486937197127790770}
   - component: {fileID: 8015390787365705551}
   - component: {fileID: 1405528128470076855}
+  - component: {fileID: 9084486307599295376}
   m_Layer: 11
   m_Name: Machine Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5879184804230780161
 Transform:
   m_ObjectHideFlags: 0
@@ -104,6 +105,20 @@ MonoBehaviour:
   hitSolidEffect: {fileID: 8655043257550809673, guid: 7a7a3e79373f5464ba1ccabbb6e533c3,
     type: 3}
   ammoSlot: {fileID: 0}
+  timeBetweenShots: 1
+--- !u!114 &9084486307599295376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028706313821389389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2197a1ffc274578901a30262b4c9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsController: {fileID: 0}
 --- !u!1001 &7793519413571908860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,18 +129,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
       propertyPath: m_Name
       value: MF_Machine_Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
       propertyPath: m_LocalPosition.x
@@ -169,26 +172,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800004, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800004, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800004, guid: 270225bc873ae4380a9c30239cf18193, type: 3}
-      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
