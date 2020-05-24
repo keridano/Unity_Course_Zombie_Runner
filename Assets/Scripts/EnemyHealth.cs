@@ -4,7 +4,12 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
 
-    bool isDying;
+    bool isDead;
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -21,11 +26,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void KillEnemy()
     {
-        if (isDying) return; //prevents multiple particle instances
+        if (isDead) return;
 
-        isDying = true;
-        //var instantiatedFx = Instantiate(deathFx, transform.position, Quaternion.identity);
-        //instantiatedFx.transform.parent = transform.parent;
-        Destroy(gameObject);
+        isDead = true;
+        GetComponent<Animator>().SetTrigger("die");
     }
 }
