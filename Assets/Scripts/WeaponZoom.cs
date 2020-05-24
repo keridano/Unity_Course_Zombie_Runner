@@ -15,6 +15,12 @@ public class WeaponZoom : MonoBehaviour
 
     bool isZoomedIn;
 
+    private void OnDisable()
+    {
+        if (isZoomedIn)
+            ZoomOut();
+    }
+
     void Start()
     {
         baseFieldOfView = Camera.main.fieldOfView;
@@ -27,19 +33,26 @@ public class WeaponZoom : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             if (isZoomedIn)
-            {
-                isZoomedIn = false;
-                Camera.main.fieldOfView = baseFieldOfView;
-                fpsController.mouseLook.XSensitivity = baseMouseXSensitivity;
-                fpsController.mouseLook.YSensitivity = baseMouseYSensitivity;
-            }
+                ZoomOut();
             else
-            {
-                isZoomedIn = true;
-                Camera.main.fieldOfView = zoomedInFieldOfView;
-                fpsController.mouseLook.XSensitivity = zoomedInMouseSensitivity;
-                fpsController.mouseLook.YSensitivity = zoomedInMouseSensitivity;
-            }
+                ZoomIn();
         }
     }
+
+    private void ZoomIn()
+    {
+        isZoomedIn = true;
+        Camera.main.fieldOfView = zoomedInFieldOfView;
+        fpsController.mouseLook.XSensitivity = zoomedInMouseSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomedInMouseSensitivity;
+    }
+
+    private void ZoomOut()
+    {
+        isZoomedIn = false;
+        Camera.main.fieldOfView = baseFieldOfView;
+        fpsController.mouseLook.XSensitivity = baseMouseXSensitivity;
+        fpsController.mouseLook.YSensitivity = baseMouseYSensitivity;
+    }
+
 }

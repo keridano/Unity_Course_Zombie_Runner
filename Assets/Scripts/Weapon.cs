@@ -12,9 +12,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitTerrainEffect;
     [SerializeField] GameObject hitSolidEffect;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 0.5f;
 
     private bool canShoot = true;
+
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
 
     void Update()
     {
@@ -27,11 +33,11 @@ public class Weapon : MonoBehaviour
     private IEnumerator Shoot()
     {
         canShoot = false;
-        if (ammoSlot.GetCurrentAmmo() > 0)
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRayCast();
-            ammoSlot.ReduceCurrentAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
         yield return new WaitForSeconds(timeBetweenShots);
         canShoot = true;
