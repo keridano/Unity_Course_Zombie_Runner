@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2000000}
   - component: {fileID: 8100000}
   - component: {fileID: 11400006}
-  - component: {fileID: 12410568}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -160,14 +159,6 @@ MonoBehaviour:
   rigidbodyFirstPersonController: {fileID: 11400004}
   StrideInterval: 4
   RunningStrideLengthen: 0.722
---- !u!124 &12410568
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +176,7 @@ GameObject:
   - component: {fileID: 8409390360024483081}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +333,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658c60f40bff34495a6133e11938cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 5
+  ammoSlots:
+  - ammotype: 0
+    ammoAmount: 15
+  - ammotype: 1
+    ammoAmount: 10
+  - ammotype: 2
+    ammoAmount: 8
 --- !u!1 &967962170
 GameObject:
   m_ObjectHideFlags: 0
